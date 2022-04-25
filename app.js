@@ -13,7 +13,8 @@ dotenv.config();
 
 const db = process.env.DB_PASS;
 
-mongoose.connect(db, ()=>{
+mongoose.connect(db, 
+   ()=>{
   console.log("DB connected")
 })
 
