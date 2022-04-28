@@ -14,7 +14,7 @@ dotenv.config();
 
 const db = process.env.DB_PASS;
 const DB_ACCESS = "mongodb+srv://emmanuel:emmanuel@clustering.lk2lo.mongodb.net/Database-testing?retryWrites=true&w=majority";
-const MY_DB = "mongodb+srv://<loyalty>:<loyalty>@shop-for-clothes-server.pvtsh.mongodb.net/Shop-for-clothes?retryWrites=true&w=majority";
+const MY_DB = "mongodb+srv://loyalty:loyalty@shop-for-clothes-server.pvtsh.mongodb.net/Shop-for-clothes?retryWrites=true&w=majority";
 
  mongoose.connect(MY_DB, 
      ()=>{
