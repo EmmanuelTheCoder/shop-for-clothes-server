@@ -7,16 +7,20 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const cors = require("cors");
 
 var app = express();
 dotenv.config();
 
 const db = process.env.DB_PASS;
+const DB_ACCESS = "mongodb+srv://emmanuel:emmanuel@clustering.lk2lo.mongodb.net/Database-testing?retryWrites=true&w=majority";
+const MY_DB = "mongodb+srv://<loyalty>:<loyalty>@shop-for-clothes-server.pvtsh.mongodb.net/Shop-for-clothes?retryWrites=true&w=majority";
 
-mongoose.connect(db, 
-   ()=>{
-  console.log("DB connected")
-})
+ mongoose.connect(MY_DB, 
+     ()=>{
+    console.log("DB connected")
+  });
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -27,6 +31,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
