@@ -12,11 +12,11 @@ const cors = require("cors");
 var app = express();
 dotenv.config();
 
-const db = process.env.DB_PASS;
-const DB_ACCESS = "mongodb+srv://emmanuel:emmanuel@clustering.lk2lo.mongodb.net/Database-testing?retryWrites=true&w=majority";
-const MY_DB = "mongodb+srv://loyalty:loyalty@shop-for-clothes-server.pvtsh.mongodb.net/Shop-for-clothes?retryWrites=true&w=majority";
+const DB = process.env.DB_PASS;
+// const DB_ACCESS = "mongodb+srv://emmanuel:emmanuel@clustering.lk2lo.mongodb.net/Database-testing?retryWrites=true&w=majority";
+// const MY_DB = "";
 
- mongoose.connect(MY_DB, 
+ mongoose.connect(DB, 
      ()=>{
     console.log("DB connected")
   });
