@@ -7,14 +7,14 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+const dataRouter = require("./utils/data");
 const cors = require("cors");
 
 var app = express();
 dotenv.config();
 
 const DB = process.env.DB_PASS;
-// const DB_ACCESS = "mongodb+srv://emmanuel:emmanuel@clustering.lk2lo.mongodb.net/Database-testing?retryWrites=true&w=majority";
-// const MY_DB = "";
+
 
  mongoose.connect(DB, 
      ()=>{
@@ -35,6 +35,7 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/data', dataRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
