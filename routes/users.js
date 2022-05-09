@@ -7,7 +7,9 @@ const users = express.Router();
 
 users.get("/", async (req, res) =>{
 
-    axios.get('https://ipinfo.io/json?token=65792d8fa53479')
+    //https://ipinfo.io/json?token=65792d8fa53479
+
+    axios.get('https://ipinfo.io/json?token=65792d8fa53479333')
     .then(response => {
       
       const {ip} = response.data;
