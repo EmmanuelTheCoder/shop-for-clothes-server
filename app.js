@@ -1,3 +1,4 @@
+const cors = require("cors");
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -9,7 +10,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 const dataRouter = require("./utils/data");
 const removeAll  = require("./utils/delete");
-const cors = require("cors");
+const cart = require("./routes/cart");
 
 var app = express();
 dotenv.config();
@@ -38,7 +39,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/data', dataRouter);
 app.use("/delete", removeAll);
-
+app.use("/cart", cart)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
