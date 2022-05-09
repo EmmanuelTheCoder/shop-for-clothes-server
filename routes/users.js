@@ -6,31 +6,29 @@ const Model = require("../utils/Model");
 const users = express.Router();
 
 
-
-
 users.get("/", async (req, res) =>{
 
-    // axios.get('https://ipinfo.io/json?token=65792d8fa53479')
-    // .then(response => {
-
-    //   const {ip} = response;
-    //   console.log(response);
+    axios.get('https://ipinfo.io/json?token=65792d8fa53479')
+    .then(response => {
+      
+      const {ip} = response.data;
 
       const collectedDetails = new Model({
-        name: "Emmanuel",
-        email: "none",
-        password: "none"
+        name: ip,
+        username: 'none',
+        password: 'none',
+        cart: []
       })
 
       try{
         (async()=>{
 
-          const checkExistence = await Model.findOne({name: "Emmanuel"})
+          const checkExistence = await Model.findOne({name: ip})
   
           if(!checkExistence){
             
             const newUser = await collectedDetails.save()
-            return res.status(200).json({message: "successs", details: newUser});
+            return res.status(200).json({message: "successs", details: newUser, ip: ip});
           }
           return res.json({response: "invalid", reason: "user already exists"})
         })()
@@ -39,8 +37,8 @@ users.get("/", async (req, res) =>{
         res.status(500).send(err);
       }
     
-    //})
-    //.catch(err =>console.log(err));
+    })
+    .catch(err =>console.log(err));
   
 });
 

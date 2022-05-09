@@ -15,6 +15,10 @@ const DetailSchema = new mongoose.Schema({
     password: {
         type: String,
         required: false
+    },
+    cart: {
+        type: Array,
+        required: false
     }
 });
 
