@@ -9,7 +9,7 @@ users.get("/", async (req, res) =>{
 
     //https://ipinfo.io/json?token=65792d8fa53479
 
-    axios.get('https://ipinfo.io/json?token=65792d8fa53479333')
+    axios.get('https://ipinfo.io/json?token=65792d8fa53479')
     .then(response => {
       
       const {ip} = response.data;
@@ -20,7 +20,7 @@ users.get("/", async (req, res) =>{
         password: 'none',
         cart: []
       })
-
+      res.send(ip)
       try{
         (async()=>{
 
@@ -29,9 +29,9 @@ users.get("/", async (req, res) =>{
           if(!checkExistence){
             
             const newUser = await collectedDetails.save()
-            return res.status(200).json({message: "successs", details: newUser, ip: ip});
+            return newUser
           }
-          return res.json({response: "invalid", reason: "user already exists"})
+          
         })()
       }
       catch(err){
