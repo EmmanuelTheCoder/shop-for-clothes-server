@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const {Schema} = require('mongoose')
 
 
 const DetailSchema = new mongoose.Schema({
@@ -15,6 +16,10 @@ const DetailSchema = new mongoose.Schema({
     password: {
         type: String,
         required: false
+    },
+    visitorId: {
+        type: Schema.Types.Mixed,
+        required: true
     },
     cart: {
         type: Array,

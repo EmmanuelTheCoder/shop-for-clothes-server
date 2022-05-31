@@ -12,7 +12,7 @@ const dataRouter = require("./utils/data");
 const removeAll  = require("./utils/delete");
 const cart = require("./routes/cart");
 
-var app = express();
+var app = express(); 
 dotenv.config();
 
 const DB = process.env.DB_PASS;
