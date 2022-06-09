@@ -17,13 +17,12 @@ const DetailSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    visitorId: {
-        type: Schema.Types.Mixed,
-        required: true
-    },
     cart: {
         type: Array,
         required: false
+    },
+    visitorId: {
+        type: String
     }
 });
 

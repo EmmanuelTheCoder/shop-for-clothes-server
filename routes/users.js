@@ -6,7 +6,9 @@ const users = express.Router();
 
 users.post("/", async (req, res) =>{
 
-      console.log("visitorId", req.body);
+
+      console.log("visitorId",  req.body);
+
       const collectedDetails = new Model({
         name: 'none',
         username: 'none',
