@@ -2,25 +2,29 @@ const express = require("express");
 const axios = require("axios");
 const Model = require("../utils/Model");
 
+
+
+
 const users = express.Router();
+users.use(express.json());
+users.use(express.urlencoded({extended: false}))
+
 
 users.post("/", async (req, res) =>{
 
-
-      console.log("visitorId",  req.body);
+    
+      console.log("visitorId", req.body.visitorId);
+    
 
       const collectedDetails = new Model({
-        name: 'none',
-        username: 'none',
-        password: 'none',
-        visitorId: req.body,
-        cart: []
+        visitorId: req.body.visitorId,
+      
       })
 
       try{
         (async()=>{
 
-          const checkExistence = await Model.findOne({visitorId: Number(req.body)})
+          const checkExistence = await Model.findOne({visitorId: req.body.visitorId})
   
           if(!checkExistence){
             

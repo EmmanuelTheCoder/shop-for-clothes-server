@@ -1,12 +1,12 @@
 const mongoose = require('mongoose');
-const {Schema} = require('mongoose')
+
 
 
 const DetailSchema = new mongoose.Schema({
 
     name: {
         type: String,
-        required: true
+        required: false
     },
 
     email: {
@@ -21,9 +21,15 @@ const DetailSchema = new mongoose.Schema({
         type: Array,
         required: false
     },
-    visitorId: {
-        type: String
+    visitorId:{
+        type: {},
+        required: true
+    },
+    date:{
+        type: Date,
+        default: Date.now()
     }
+    
 });
 
 module.exports = mongoose.model("Detail", DetailSchema)
