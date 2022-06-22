@@ -12,12 +12,13 @@ users.use(express.urlencoded({extended: false}))
 
 users.post("/", async (req, res) =>{
 
-    
-      console.log("visitorId", req.body.visitorId);
-    
 
       const collectedDetails = new Model({
         visitorId: req.body.visitorId,
+        name: "none",
+        email: "none",
+        password: "none",
+        cart: []
       
       })
 
