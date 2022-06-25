@@ -8,8 +8,10 @@ cart.post("/", async (req, res) => {
     const confirmVisitorId = await Model.find({visitorId: req.body.visitorId})
 
     if(confirmVisitorId){
-        const updatedCart = await Model.updateOne({$addToSet: {cart: req.body.cart}})
-        console.log(updatedCart)
+        await Model.updateOne({$addToSet: {cart: req.body.cart}})
+        
+        const cartItems = await Model.findOne({cart})
+        res.send(cartItems.cart)
 
     }else{
         res.send("not found! You don't exist ")
