@@ -8,7 +8,6 @@ const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
-const dataRouter = require("./utils/data");
 const removeAll  = require("./utils/delete");
 const cart = require("./routes/cart");
 
@@ -37,7 +36,6 @@ app.use(cors());
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
-app.use('/data', dataRouter);
 app.use("/delete", removeAll);
 app.use("/cart", cart)
 // catch 404 and forward to error handler

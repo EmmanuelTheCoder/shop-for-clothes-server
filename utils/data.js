@@ -1,6 +1,3 @@
-const express = require("express");
-
-const data = express.Router();
 
  const storeProducts = [
     {
@@ -126,7 +123,7 @@ const data = express.Router();
     }
   ];
   
-const detailProduct = {
+ const detailProduct = {
     id: 1,
     title: "Black gown",
     img: "pictures/product1.jpg",
@@ -140,9 +137,4 @@ const detailProduct = {
   }
 
 
-
-data.get("/", (req, res) => {
-    res.status(200).json({storeProducts: storeProducts, detailProduct: detailProduct});
-});
-
-module.exports = data;
+module.exports = {detailProduct, storeProducts}
